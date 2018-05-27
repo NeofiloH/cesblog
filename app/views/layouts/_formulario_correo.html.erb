@@ -1,0 +1,63 @@
+ <!-- Formulario PQRS
+    ================================================== -->
+
+  <div class="container">
+
+    <h2 class="form-signin-heading">Formulario de Peticiones, Quejas, Reclamos y Sugerencias </h2>
+
+    
+    <%= form_tag (""), :method => 'post', :class => 'form-inline' do  %>
+
+      <div class="form-group">
+        <%= label_tag 'nombre', 'Nombre'%>
+    <br>
+        <%= text_field_tag :nombre, params[:nombre], class: 'form-control', autofocus: true, placeholder: "Ingrese su nombre", size: "25x10" %>
+      </div>
+
+    <br>
+    <br>
+
+      <div class="form-group">
+        <%=label_tag 'email',"Corre Eléctronico" %>
+    <br>
+        <%= text_field_tag :email, params[:email], class: 'form-control', autofocus: true, placeholder: "Ingrese su correo eléctronico", size: "25x10" %>
+      </div>
+
+    <br>
+    <br>
+
+      <div class="form-group">
+        <%=label_tag 'asunto',"Asunto" %>
+    <br>
+        <%= text_field_tag :asunto, params[:asunto], class: 'form-control', autofocus: true, placeholder: "Ingrese el tema de interes", size: "25x10" %>
+      </div>
+
+    <br>
+    <br>
+    
+      <div class="form-group">
+        <%=label_tag 'mensaje',"Mensaje" %>
+    <br>
+        <%= text_area_tag :mensaje, params[:mensaje], autofocus: true, size: "120x20", placeholder: "Ingrese su comentario" %>
+      </div>
+    
+    <br>
+    <br>
+
+      <%= submit_tag "Enviar", class: 'btn btn-default btn-lg btn-submit' %>
+    
+    <br>
+    
+    <%end%>
+
+</div>  <!-- /container -->
+    
+    <br>
+    <br>
+
+  <% if flash[:noticia] %>
+          <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Felicidades</strong> <%= flash[:noticia] %>
+          </div>
+    <% end %>
